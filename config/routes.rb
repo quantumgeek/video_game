@@ -1,4 +1,18 @@
 VideoGame::Application.routes.draw do
+  
+  root :to => "users#new"
+  
+  # Creates RESTful routes
+  resources :users
+  resources :sessions
+  
+  # Shortcut to sign up page
+  get "sign_up" => "users#new", :as => "sign_up"
+  
+  get "login" => "sessions#new", :as => "login"
+  
+  get "logout" => "sessions#destroy", :as => "logout"
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

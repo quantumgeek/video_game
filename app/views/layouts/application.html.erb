@@ -2,12 +2,23 @@
 <html>
 <head>
   <title>VideoGame</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag :all %>
+  <%= javascript_include_tag :defaults %>
+  <%= csrf_meta_tag %>
 </head>
 <body>
-
+	<div id="user_nav">
+		<% if current_user %>
+			Logged in as <%= current_user.username %>
+			<%= link_to "Log out", logout_path %>
+		<% else %>
+			<%= link_to "Sign up", sign_up_path %> or
+			<%= link_to "log in", login_path %>
+		<% end %>
+	</div>
+	<% flash.each do |key, value| %>
+		<%= content_tag(:div, value, :class => "flash #{key}") %>
+	<% end %>
 <%= yield %>
 
 </body>
