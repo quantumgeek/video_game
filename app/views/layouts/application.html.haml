@@ -2,8 +2,12 @@
 %html
 	%head
 		%title VideoGame
-		= stylesheet_link_tag :all
-		= javascript_include_tag :defaults
+		= stylesheet_link_tag :application, :media => 'screen'
+		= stylesheet_link_tag :print, :media => 'print'
+		<!--[if lt IE 8]>
+		= stylesheet_link_tag :ie 
+		<![endif]-->
+		= javascript_include_tag :application
 		= csrf_meta_tag
 	%body
 	#user_nav
@@ -15,4 +19,5 @@
 			= link_to "log in", login_path
 	- flash.each do |key, value|
 		= content_tag(:div, value, :class => "flash #{key}")
-	= yield
+	.container
+		= yield
