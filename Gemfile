@@ -14,6 +14,9 @@ gem 'uglifier'
 
 gem 'jquery-rails'
 
+gem 'haml'
+# gem "compass", :git => 'git://github.com/chriseppstein/compass.git', :branch => 'rails31'
+
 group :development do
   gem 'rspec-rails'
   gem 'annotate'

@@ -50,6 +50,7 @@ GEM
       railties (>= 3.0.0)
     faker (0.9.5)
       i18n (~> 0.4)
+    haml (3.1.2)
     hike (1.1.0)
     i18n (0.6.0)
     jquery-rails (1.0.12)
@@ -136,6 +137,7 @@ DEPENDENCIES
   coffee-script
   factory_girl_rails
   faker
+  haml
   jquery-rails
   rails (= 3.1.0.rc4)
   rspec-rails
