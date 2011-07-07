@@ -4,20 +4,19 @@
 		%title VideoGame
 		= stylesheet_link_tag :application, :media => 'screen'
 		= stylesheet_link_tag :print, :media => 'print'
-		<!--[if lt IE 8]>
-		= stylesheet_link_tag :ie 
-		<![endif]-->
+		/[if lt IE 8]
+			= stylesheet_link_tag :ie 
 		= javascript_include_tag :application
 		= csrf_meta_tag
 	%body
-	#user_nav
-		- if current_user
-			Logged in as <%= current_user.username %>
-			= link_to "Log out", logout_path
-		- else
-			= link_to("Sign up", sign_up_path)
-			= link_to "log in", login_path
-	- flash.each do |key, value|
-		= content_tag(:div, value, :class => "flash #{key}")
-	.container
-		= yield
+	
+	= render 'layouts/header'
+	= yield :special
+	.container.content-box
+		#main_page.span-22.prepend-1.append-1
+			#flash.prepend-top.append-bottom
+				- flash.each do |key, value|
+					= content_tag(:div, value, :class => "flash #{key}")
+			.span-22
+				= yield
+	= render 'layouts/footer'

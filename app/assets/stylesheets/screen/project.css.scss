@@ -1,0 +1,84 @@
+$background_color: #FCEEB9;
+$container_color: #FFF;
+$header_background_color: #5EE0CB;
+$site_nav_background_color: #302E25;
+$footer_background_color: #C8D153;
+
+
+@mixin round($rad: 10px) {
+	border-bottom-right-radius: $rad;
+	-moz-border-radius-bottomright: $rad;
+	border-bottom-left-radius: $rad;
+	-moz-border-radius-bottomleft: $rad;
+}
+
+body {
+	background: $background_color;
+}
+
+.container {
+	background: $container_color;	
+}
+
+.content-box {
+	@include round;
+	box-shadow: 8px 8px 4px #666;
+}
+
+#header {
+	width: 100%;
+	height: 65px;
+	padding: 0px;
+	background: $header_background_color;
+	
+	.container {
+		background: $header_background_color;
+	}
+	
+	h1 {
+		padding: 10px 10px 0px 10px;
+		a {
+			color: #333;
+			text-decoration: none;
+		}
+	}
+	
+	#top_nav {
+		text-align: right;
+		
+		a {
+			color: #FFF;
+			text-decoration: none;
+			
+			&:hover {
+				color: #FFF;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+#site-nav {
+	width: 100%;
+	height: 40px;
+	padding: 0px;
+	background: $site_nav_background_color;
+}
+
+#footer {
+	width: 100%;
+	height: 150px;
+	background: $footer_background_color;
+	margin-top: 20px;
+	color: #333;
+	text-align: center;
+}
+
+.field {
+	margin-bottom: 10px;
+	
+	label {
+		font-size: 2em;
+	}
+}
+
